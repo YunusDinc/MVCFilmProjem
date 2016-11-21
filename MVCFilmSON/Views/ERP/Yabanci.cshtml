@@ -1,0 +1,71 @@
+﻿@using MVCFilmSON.Models
+@model IEnumerable<Film> 
+@{
+    ViewBag.Title = "Yabancı Filmler";
+}
+
+<article class="node">
+    <h1 class="title">3 Column Portfolio</h1>
+    <div class="navigation top alpha omega grid_12">
+        <div class="sort_cont">
+            <div class="form-type-select">
+                <label for="form_titles">Show:</label>
+                <select id="form_titles" class="sort_by form_titles">
+                    <option value="all" selected="selected">All</option>
+                    <option value="test">Test</option>
+                    <option value="test1">Test1</option>
+                    <option value="test2">Test2</option>
+                </select>
+            </div>
+        </div>
+        <div class="item-list">
+            <ul class="pager">
+                <li class="pager-count">
+                    Page 1 of 10
+                </li>
+                <li class="pager-prev">
+                    <a href="#" class="button button_small button_arrow button_arrow_left"></a>
+                </li>
+                <li class="pager-item">
+                    <a href="#" class="button button_small">1</a>
+                </li>
+                <li class="pager-item active">
+                    <a href="#" class="button button_small">2</a>
+                </li>
+                <li class="pager-item">
+                    <a href="#" class="button button_small">3</a>
+                </li>
+                <li class="pager-ellipsis">
+                    …
+                </li>
+                <li class="pager-item">
+                    <a href="#" class="button button_small">8</a>
+                </li>
+                <li class="pager-item">
+                    <a href="#" class="button button_small">9</a>
+                </li>
+                <li class="pager-item">
+                    <a href="#" class="button button_small">10</a>
+                </li>
+                <li class="pager-next">
+                    <a href="#" class="button button_small button_arrow"></a>
+                </li>
+            </ul>
+        </div>
+
+
+
+    <div id="sorted" class="col3 video">
+        @foreach (var item in Model)
+        {
+            <div class="photo_colums grid_4" data-id="id-@item.FilmID" data-type="test2">
+                <a href="/ERP/Detay/@item.FilmID"><img class="wrap_me" alt="Portfolio" src="/Content/filmresim/@item.ResimURL" /></a>
+                <div class="details">
+                    <h4 class="title"><a href="/ERP/Detay/@item.FilmID">@item.FilmAdi</a></h4>
+                </div>
+            </div>
+        }
+
+    </div>
+        </div>
+    </article>
